@@ -14,7 +14,17 @@
 
     <!-- Search bar and button to get user's location -->
     <div class="container search">
-      <button type="button" class="btn btn-primary" id="search-btn">Here</button>
+
+      <div id="search-wrapper">
+        <input 
+          type="text" 
+          name="search-bar" 
+          id="search-bar" 
+          placeholder="Search for a location"
+        >
+      </div>
+      <button type="button" class="btn btn-primary" id="search-btn">🧐</button>
+      <button type="button" class="btn btn-primary" id="curloc-btn">📍</button>
     </div>
     <!-- Content gets displayed here -->
     <div class="container results" id="results">
