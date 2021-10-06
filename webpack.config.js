@@ -20,7 +20,8 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist'
+    static: './dist',
+    https: true
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -40,11 +41,11 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use:[
-          {
-            loader: "html-loader"
-          }
-        ]
+        use:"html-loader"
+      },
+      {
+        test: /\.css$/,
+        use:[ "style-loader", "css-loader"]
       }
     ]
   }

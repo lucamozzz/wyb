@@ -1,9 +1,11 @@
+import '../CSS/style.css';
+
 const axios = require("axios");
-const api_path = 'http://api.waqi.info/';
+const api_path = 'https://api.waqi.info/';
 const api_key = process.env.API_KEY;
 
 const curlocBtn = document.getElementById("curloc-btn");
-const searchBtn = document.getElementById("search-btn");
+const searchBtn = document.getElementsByClassName("btn-search");
 const searchBar = document.getElementById('search-bar');
 const resultsDiv = document.getElementById("results");
 
@@ -19,7 +21,7 @@ curlocBtn.addEventListener("click", () => {
   });
 });
 
-searchBtn.addEventListener('click', async () => {
+searchBtn[0].addEventListener('click', async () => {
   try {
     const response = await axios(api_path + `search/?keyword=${searchBar.value}&token=${api_key}`, { crossdomain: true });
     console.log(response.data.data);
@@ -39,7 +41,19 @@ const geoSearch = async (latitude, longitude) => {
 }
 
 const displayParams = (response) => {
-  resultsDiv.innerHTML = ``;
+  resultsDiv.innerHTML = `
+      <div class="row">
+        <div class="col-12 col-md-6" id="div-aqi"></div>
+        <div class="col-12 col-md-6" id="div-params"></div>
+      </div>
+      <div class="row">
+        <div class="col-12" id="div-station"></div>
+      </div>
+  `;
+  const aqiDiv = document.getElementById("div-aqi");
+  const paramsDiv = document.getElementById("div-params");
+  const stationDiv = document.getElementById("div-station");
+  
   let res = response.iaqi;
   let ul = document.createElement("ul");
   for (const prop in res) {
@@ -50,26 +64,24 @@ const displayParams = (response) => {
     ul.appendChild(li);
     li.innerHTML += name + ": " + value;
   }
-
-  let head = document.createElement("h2");
-  head.innerHTML = `Let's see what's in the air:`;
-  resultsDiv.appendChild(head);
   
   let aqi = document.createElement("h3");
   aqi.innerHTML = `Air Quality Index: ${response.aqi}`;
-  resultsDiv.appendChild(aqi);
+  aqiDiv.appendChild(aqi);
 
   let params = document.createElement("h4");
   params.innerHTML = `Considered parameters:`;
-  resultsDiv.appendChild(params);
-  resultsDiv.appendChild(ul);
+  paramsDiv.appendChild(params);
+  paramsDiv.appendChild(ul);
 
   let info = document.createElement("h6");
   info.innerHTML = `
   Data retrieved from the following weather station: ${response.city.name} (<a href="${response.attributions[0].url}">${response.attributions[0].url}</a>).
   <br>Values are converted from µg/m3 to AQI levels using the EPA standard.
   `;
-  resultsDiv.appendChild(info);
+  stationDiv.appendChild(info);
+
+  console.log('puttana madonna');
 }
 
 const displayLocations = (res) => {
