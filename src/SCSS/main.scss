@@ -1,0 +1,64 @@
+@import 'header';
+@import 'variables';
+
+body{
+    background: $bg;
+}
+
+.container{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header{
+    cursor: pointer;
+    margin-top: 30px;
+    color: $blue;
+    h1{
+        font-weight: 1000;
+    }
+    h2{
+        font-weight: 500;
+    }
+}
+
+.search{
+    input{
+        border: 1px solid $blue;
+    }
+    button{
+        border: 1px solid $blue;
+        background-color: $blue;
+    }
+    button:hover{
+        background-color: $alternative_blue;
+    }
+}
+
+.results{
+    ul{
+        list-style-type: none;
+        padding-left: 0;
+    }
+    li{
+        padding: .5rem 1rem;
+    }
+    .instructions{
+        margin: 100px 50px;
+    }
+    .aqi-value{
+        font-size: 70px;;
+    }
+    .aqi{
+        margin-bottom: 30px;
+    }
+    .par{
+        padding: .15rem;
+    }
+    .par-name{
+        font-size: 17px;;
+    }
+    .par-value{
+        font-size: 20px;;
+    }
+}
