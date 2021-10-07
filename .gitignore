@@ -6,3 +6,6 @@ node_modules/
 
 # distribution folder
 dist/
+
+# .DS_Store file
+.DS_Store
