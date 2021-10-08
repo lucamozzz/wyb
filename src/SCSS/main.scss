@@ -1,4 +1,3 @@
-@import 'header';
 @import 'variables';
 
 body{
@@ -44,7 +43,10 @@ body{
         padding: .5rem 1rem;
     }
     .instructions{
-        margin: 100px 50px;
+        margin-top: 70px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 25px;
     }
     .aqi-value{
         font-size: 70px;;

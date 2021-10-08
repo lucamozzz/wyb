@@ -9,16 +9,10 @@ const curlocBtn = document.getElementsByClassName("btn-curloc");
 const searchBtn = document.getElementsByClassName("btn-search");
 const searchBar = document.getElementById('search-bar');
 const resultsDiv = document.getElementById("results");
-const instructionsDiv = document.getElementById('div-instructions');
 
-const displayEmpty = () => {
-  resetDisplay();
-  let empty = document.createElement("h3");
-  empty.innerHTML = `Your research did not go well...`;
-  resultsDiv.appendChild(empty);
-}
+displayHome();
 
-homeBtn.addEventListener('click', backHome);
+homeBtn.addEventListener('click', displayHome);
 
 curlocBtn[0].addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition(
@@ -51,7 +45,15 @@ const geoSearch = async (latitude, longitude) => {
 }
 
 const displayParams = (response) => {
-  resetDisplay();
+  resultsDiv.innerHTML = `
+    <div class="row">
+      <div class="col-12 col-md-6 aqi" id="div-aqi"></div>
+      <div class="col-12 col-md-6" id="div-params"></div>
+    </div>
+    <div class="row">
+      <div class="col-12" id="div-station"></div>
+    </div>
+  `;
   const aqiDiv = document.getElementById("div-aqi");
   const paramsDiv = document.getElementById("div-params");
   const stationDiv = document.getElementById("div-station");
@@ -79,14 +81,18 @@ const displayParams = (response) => {
 
   let info = document.createElement("p");
   info.innerHTML = `
-  Data retrieved from the following weather station: ${response.city.name} (<a href="${response.attributions[0].url}">${response.attributions[0].url}</a>).
+  Data retrieved from the following weather station: ${response.city.name}<br>(<a href="${response.attributions[0].url}">${response.attributions[0].url}</a>).
   <br>Values are converted from µg/m3 to AQI levels using the EPA standard.
   `;
   stationDiv.appendChild(info);
 }
 
 const displayLocations = (res) => {
-  resetDisplay();
+  resultsDiv.innerHTML = `
+    <div class="instructions" id="div-instructions">
+    <h2>Select a location</h2>
+    </div>
+  `;  
   if (res.length == 0) {
     displayEmpty();
   } else {
@@ -106,23 +112,21 @@ const displayLocations = (res) => {
   }
 }
 
-function resetDisplay(){
-  resultsDiv.innerHTML = `
-    <div class="row">
-      <div class="col-12 col-md-6 aqi" id="div-aqi"></div>
-      <div class="col-12 col-md-6" id="div-params"></div>
-    </div>
-    <div class="row">
-      <div class="col-12" id="div-station"></div>
-    </div>
-  `;
-}
-
-function backHome(){
+function displayHome(){
+  searchBar.value = "";
   resultsDiv.innerHTML = `
   <div class="instructions" id="div-instructions">
   <h2>Welcome!</h2>
-  <p class="lead">Look for a specific place around the world or click on the red pin to analyze your current location</p>
+  <p class="lead">Analyze a specific place 🔎 <br> or your current location 📍</p>
+  </div>
+  `;
+}
+
+function displayEmpty(){
+  resultsDiv.innerHTML = `
+  <div class="instructions" id="div-instructions">
+  <h2>It didn't go well...</h2>
+  <p class="lead">Try inserting a keyword in the searchbar</p>
   </div>
   `;
 }
