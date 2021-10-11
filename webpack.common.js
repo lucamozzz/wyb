@@ -26,10 +26,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser'
     }),
-    new Dotenv({
-      path: './.env',
-      safe: true
-    })
+    new Dotenv()
   ],
   module: {
     rules: [
