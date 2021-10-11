@@ -29,7 +29,7 @@ module.exports = {
     new Dotenv({
       path: ('.env'),
       allowEmptyValues: true,
-      ignoreStub: false
+      ignoreStub: true
       }
     )
   ],
