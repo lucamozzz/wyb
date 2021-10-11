@@ -5,23 +5,17 @@ const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'development',
   resolve: {
     fallback: {
       "fs": false
     },
   },
   entry: {
-      app: './src/JS/index.js',
-  },
+      app: './src/JS/index.js'
+    },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: './dist',
-    https: true
   },
   plugins: [
     new CleanWebpackPlugin(),
