@@ -2,7 +2,7 @@ import '../SCSS/main.scss';
 
 const axios = require("axios");
 const api_path = 'https://api.waqi.info/';
-const api_key = process.env.API_KEY;
+const API_KEY = process.env.API_KEY;
 
 let aqiDiv, indicationsDiv, paramsDiv, stationDiv;
 const resultsDiv = document.getElementById("results");
@@ -31,7 +31,7 @@ curlocBtn[0].addEventListener("click", () => {
 
 searchBtn[0].addEventListener('click', async () => {
   try {
-    const response = await axios(api_path + `search/?keyword=${searchBar.value}&token=${api_key}`, { crossdomain: true });
+    const response = await axios(api_path + `search/?keyword=${searchBar.value}&token=${API_KEY}`, { crossdomain: true });
     displayLocations(response.data.data);
   } catch (error) {
     console.log(error);
@@ -40,7 +40,7 @@ searchBtn[0].addEventListener('click', async () => {
 
 async function geoSearch(latitude, longitude) {
   try {
-    const response = await axios(api_path + `feed/geo:${latitude};${longitude}/?token=${api_key}`);
+    const response = await axios(api_path + `feed/geo:${latitude};${longitude}/?token=${API_KEY}`);
     displayResults(response.data.data);
   } catch (error) {
     console.log(error);
