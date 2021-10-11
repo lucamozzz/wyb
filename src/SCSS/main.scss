@@ -1,0 +1,119 @@
+@import 'variables';
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed&display=swap');
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: $bg;
+    h1, h2, h3, h4, h5, h6{
+        color: $blue;
+    }
+}
+
+.container{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header{
+    font-family: 'Pacifico', cursive;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.search{
+    input{
+        border: 1px solid $blue;
+    }
+    button{
+        border: 1px solid $blue;
+        background-color: $blue;
+    }
+    button:hover{
+        background-color: $light_blue;
+    }
+}
+
+.results{
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    ul{
+        list-style-type: none;
+        padding-left: 0;
+    }
+    li{
+        padding: .5rem 1rem;
+    }
+    h5, h3{
+        font-size: 1.5rem;
+    }
+    .instructions{
+        margin-top: 40px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 25px;
+    }
+    .aqi-value{
+        font-size: 5rem;
+        color: black;
+    }
+    .aqi{
+        margin-bottom: 30px;
+    }
+    .level{
+        margin-bottom: 30px;
+    }
+    .aqi-level-value{
+        color: black;
+    }
+    .aqi-emoji-value{
+        font-size: 3.5rem;
+    }
+    .par{
+        padding: .1rem;
+    }
+    .par-name{
+        font-size: 1rem;
+    }
+    .par-value{
+        font-size: 1.3rem;
+    }
+    .station-info{
+        padding-top: 50px;
+    }
+}
+
+.locations{
+    li{
+        padding-top: 15px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .search{
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .results{
+        h5, h3{
+            font-size: 3rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        .aqi-value{
+            font-size: 6rem;
+        }
+        .aqi-emoji-value{
+            font-size: 4rem;
+        }
+        .par-name{
+            font-size: 1.3rem;
+        }
+        .par-value{
+            font-size: 1.4rem;
+        }
+    }
+}
