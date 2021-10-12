@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   resolve: {
@@ -24,7 +25,13 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser'
-    })
+    }),
+    new Dotenv({
+      path: ('.env'),
+      allowEmptyValues: true,
+      ignoreStub: true
+      }
+    )
   ],
   module: {
     rules: [
