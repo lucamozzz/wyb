@@ -13,23 +13,23 @@
     "bootstrap": "^5.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
+    "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
+    "fs": "0.0.1-security",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
     "node-sass": "^6.0.1",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "process": "^0.11.10",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.1.1",
-    "webpack-merge": "^5.8.0",
-    "dotenv-webpack": "^7.0.3"
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "axios": "^0.21.4",
-    "fs": "0.0.1-security",
-    "os": "^0.1.2",
-    "path": "^0.12.7",
-    "process": "^0.11.10"
+    "axios": "^0.21.4"
   }
 }
