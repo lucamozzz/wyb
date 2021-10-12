@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   resolve: {
