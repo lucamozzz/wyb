@@ -19,6 +19,7 @@ Just a simple app that could one day become something more or just remain as it 
 - Bundled with Webpack 5
 - HTTP requests made using Axios
 - Laid out with Bootstrap 5
+- Deployed on Netlify with netlify-cli
 
 ## How To Use & Deploy
 
@@ -29,8 +30,8 @@ This app is nothing different from a billion others you've already used.
 
 ## How To Run
 
-Download the repo and run "npm run build" to see it in action
-<br>(in order to function correctly, you'll have to set your own api key in a ".env" file).
+Download the repo and run <code>npm run build</code> to see it in action
+<br>(in order to function correctly, you'll have to set your own api key in a <code>.env</code> file).
 The "/scripts" folder was created to make the deploy on Netlify work. You can get rid of it if you're deploying somewhere else.
 
 ## License
