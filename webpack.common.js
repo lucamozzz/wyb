@@ -1,18 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  resolve: {
-    fallback: {
-      "fs": false
-    },
-  },
-  entry: {
-      app: './src/JS/index.js'
-    },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -23,15 +14,9 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser'
-    }),
     new Dotenv({
-      path: ('.env'),
-      allowEmptyValues: true,
-      ignoreStub: true
-      }
-    )
+      path: '.env'
+    })
   ],
   module: {
     rules: [

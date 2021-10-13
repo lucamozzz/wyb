@@ -23,16 +23,16 @@ Just a simple app that could one day become something more or just remain as it 
 
 ## How To Use & Deploy
 
+### Deploy --> <a href="wyb.netlify.app" target="_blank">wyb.netlify.app</a>
 This app is nothing different from a billion others you've already used. 
 <br>Type a keyword in the search bar to find a specific location and hit "🔎". 
 <br>Hit "📍" instead to input your current location. That's about it.
-<br>Deploy --> <a href="wyb.netlify.app" target="_blank">wyb.netlify.app</a>
 
 ## How To Run
 
-Download the repo and run <code>npm run build</code> to see it in action
-<br>(in order to function correctly, you'll have to set your own api key in a <code>.env</code> file).
-The "/scripts" folder was created to make the deploy on Netlify work. You can get rid of it if you're deploying somewhere else.
+Download the repo and run <code>npm run build</code> to see it in action (in order to function correctly, you'll have to set your own api key in a <code>.env</code> file).
+
+<b>NOTE</b>: a <code>scripts</code> folder was created as a workaround for deploying on Netlify. That folder has been recently deleted to make space for a <code>functions</code> folder which contains Netlify Functions. Just pointing it out for clarity.
 
 ## License
 

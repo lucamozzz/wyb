@@ -1,5 +1,8 @@
 import '../SCSS/main.scss';
 
+const axios = require("axios");
+const API_KEY = process.env.API_KEY;
+
 let aqiDiv, indicationsDiv, paramsDiv, stationDiv;
 const resultsDiv = document.getElementById("results");
 const homeBtn = document.getElementById("btn-home");
@@ -29,9 +32,8 @@ searchBtn[0].addEventListener('click', keySearch);
 
 async function keySearch() {
   try {
-    const response = await fetch(`/.netlify/functions/key-search?key=${searchBar.value}`);
-    const data = await response.json(); 
-    displayLocations(data.data);
+    const response = await axios(`https://api.waqi.info/search/?keyword=${searchBar.value}&token=${API_KEY}`, { crossdomain: true });
+    displayLocations(response.data.data);
   } catch (error) {
     console.log(error);
   }
@@ -39,9 +41,8 @@ async function keySearch() {
 
 async function geoSearch(latitude, longitude) {
   try {
-    const response = await fetch(`/.netlify/functions/geo-search?lat=${latitude}&long=${longitude}`);
-    const data = await response.json(); 
-    displayResults(data.data);
+    const response = await axios(`https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=${API_KEY}`);
+    displayResults(response.data.data);
   } catch (error) {
     console.log(error);
   }
