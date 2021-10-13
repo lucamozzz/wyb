@@ -29,19 +29,23 @@ curlocBtn[0].addEventListener("click", () => {
     });
 });
 
-searchBtn[0].addEventListener('click', async () => {
+searchBtn[0].addEventListener('click', keySearch);
+
+async function keySearch() {
   try {
-    const response = await axios(api_path + `search/?keyword=${searchBar.value}&token=${API_KEY}`, { crossdomain: true });
-    displayLocations(response.data.data);
+    const response = await fetch(`/.netlify/functions/key-search?key=${searchBar.value}`);
+    const data = await response.json(); 
+    displayLocations(data.data);
   } catch (error) {
     console.log(error);
   }
-});
+}
 
 async function geoSearch(latitude, longitude) {
   try {
-    const response = await axios(api_path + `feed/geo:${latitude};${longitude}/?token=${API_KEY}`);
-    displayResults(response.data.data);
+    const response = await fetch(`/.netlify/functions/geo-search?lat=${latitude}&long=${longitude}`);
+    const data = await response.json(); 
+    displayResults(data.data);
   } catch (error) {
     console.log(error);
   }
