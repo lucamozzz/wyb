@@ -9,3 +9,6 @@ dist/
 
 # .DS_Store file
 .DS_Store
+
+#.netlify subdirectory
+.netlify/
