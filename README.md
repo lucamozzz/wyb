@@ -23,7 +23,7 @@ Just a simple app that could one day become something more or just remain as it 
 
 ## How To Use & Deploy
 
-### Deploy --> <a href="wyb.netlify.app" target="_blank">wyb.netlify.app</a>
+### Deploy --> <a href="https://wyb.netlify.app/" target="_blank">wyb.netlify.app</a>
 This app is nothing different from a billion others you've already used. 
 <br>Type a keyword in the search bar to find a specific location and hit "🔎". 
 <br>Hit "📍" instead to input your current location. That's about it.
